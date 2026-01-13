@@ -1,22 +1,41 @@
+"""
+Módulo que define la clase CuentaBanco.
+Maneja operaciones básicas bancarias.
+"""
+
 class CuentaBanco:
+    """Representa una cuenta bancaria con operaciones básicas."""
+
     def __init__(self, titular: str, saldo_inicial: float = 0.0):
         """
-        Constructor de la clase CuentaBanco.
+        Inicializa la cuenta bancaria.
 
-        :param titular: Nombre del titular de la cuenta
-        :param saldo_inicial: Saldo inicial de la cuenta (por defecto 0.0)
+        Args:
+            titular (str): Nombre del dueño de la cuenta.
+            saldo_inicial (float): Saldo inicial de la cuenta.
         """
         self.titular = titular
         self.saldo = saldo_inicial
 
     def deposito_cuenta(self, monto: float):
-        pass
+        """
+        Realiza un depósito en la cuenta.
+
+        Args:
+            monto (float): Cantidad a depositar.
+
+        Raises:
+            ValueError: Si el monto es negativo o cero.
+        """
+        if monto <= 0:
+            raise ValueError("El monto a depositar debe ser positivo.")
+        self.saldo += monto
 
     def retiro_cuenta(self, monto: float):
-        pass
+        """Pendiente de implementación."""
 
     def transferencia_cuenta(self, monto: float, cuenta_destino):
-        pass
+        """Pendiente de implementación."""
 
     def saldo_cuenta(self) -> float:
-        pass
+        """Pendiente de implementación."""
