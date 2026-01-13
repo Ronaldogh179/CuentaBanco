@@ -32,7 +32,20 @@ class CuentaBanco:
         self.saldo += monto
 
     def retiro_cuenta(self, monto: float):
-        """Pendiente de implementación."""
+        """
+        Realiza un retiro de la cuenta.
+
+        Args:
+            monto (float): Cantidad a retirar.
+
+        Raises:
+            ValueError: Si el monto es negativo, cero o mayor al saldo.
+        """
+        if monto <= 0:
+            raise ValueError("El monto a retirar debe ser positivo.")
+        if monto > self.saldo:
+            raise ValueError("Saldo insuficiente para realizar el retiro.")
+        self.saldo -= monto
 
     def transferencia_cuenta(self, monto: float, cuenta_destino):
         """Pendiente de implementación."""
