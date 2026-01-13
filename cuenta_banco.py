@@ -48,7 +48,32 @@ class CuentaBanco:
         self.saldo -= monto
 
     def transferencia_cuenta(self, monto: float, cuenta_destino):
-        """Pendiente de implementación."""
+        """
+        Realiza una transferencia a otra cuenta.
+
+        Args:
+            monto (float): Cantidad a transferir.
+            cuenta_destino (CuentaBanco): Objeto de la cuenta destino.
+
+        Raises:
+            ValueError: Si el monto es inválido o insuficiente.
+            TypeError: Si el destino no es una cuenta válida.
+        """
+        if monto <= 0:
+            raise ValueError("El monto a transferir debe ser positivo.")
+        if monto > self.saldo:
+            raise ValueError("Saldo insuficiente para realizar la transferencia.")
+        if not isinstance(cuenta_destino, CuentaBanco):
+            raise TypeError("La cuenta de destino no es válida.")
+
+        self.saldo -= monto
+        cuenta_destino.saldo += monto
 
     def saldo_cuenta(self) -> float:
-        """Pendiente de implementación."""
+        """
+        Devuelve el saldo actual de la cuenta.
+
+        Returns:
+            float: El saldo disponible.
+        """
+        return self.saldo
